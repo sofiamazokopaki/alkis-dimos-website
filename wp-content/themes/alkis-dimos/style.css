@@ -1,0 +1,144 @@
+/*
+Theme Name: Alkis Dimos
+Template: wedding-photography-nook
+Version: 1.9.0
+Description: Custom child theme για το alkisdimosvisuals.com
+Text Domain: alkis-dimos
+*/
+
+/* ===== 1. Τίτλοι χωρίς πλάγια γράμματα ===== */
+:is(h1, h2, h3, h4, h5, h6) :is(em, i) {
+	font-style: normal !important;
+}
+
+/* ===== 2. Κεφαλίδα: λογότυπο αριστερά, burger δεξιά ===== */
+.ad-header {
+	padding: 1.25rem clamp(1.25rem, 4vw, 3rem);
+	gap: 2rem;
+}
+.ad-header .wp-block-site-logo img {
+	height: auto;
+	max-width: 45vw;
+}
+
+/* ===== 3. Burger menu ===== */
+.ad-menu .wp-block-navigation__responsive-container-open svg,
+.ad-menu .wp-block-navigation__responsive-container-close svg {
+	width: 2rem;
+	height: 2rem;
+}
+.ad-menu .wp-block-navigation__responsive-container-open:hover,
+.ad-menu .wp-block-navigation__responsive-container-close:hover {
+	color: var(--wp--preset--color--accent);
+}
+
+/* Μαύρο πάνελ με λευκά γράμματα */
+.wp-block-navigation.ad-menu .wp-block-navigation__responsive-container.is-menu-open {
+	background: #000 !important;
+	color: #fff !important;
+	padding: clamp(1.5rem, 4vw, 3rem);
+}
+/* Σε υπολογιστή: «μαζεμένο» πάνελ από τα δεξιά */
+@media (min-width: 782px) {
+	.wp-block-navigation.ad-menu .wp-block-navigation__responsive-container.is-menu-open {
+		left: auto;
+		width: min(30rem, 100%);
+		box-shadow: -2rem 0 4rem rgba(0, 0, 0, 0.35);
+	}
+}
+.ad-menu .is-menu-open .wp-block-navigation__responsive-container-content {
+	align-items: flex-end;
+	padding-top: 3rem;
+}
+.ad-menu .is-menu-open .wp-block-navigation__container {
+	align-items: flex-end;
+	gap: 1.25rem;
+}
+
+/* Οι επιλογές: μεγάλα κεφαλαία με κόκκινο βελάκι */
+.ad-menu .is-menu-open .wp-block-navigation-item__content {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6em;
+	color: #fff;
+	font-family: var(--wp--preset--font-family--roboto-condensed);
+	font-size: clamp(1.75rem, 3vw, 2.5rem);
+	font-weight: 600;
+	letter-spacing: 0.03em;
+}
+.ad-menu .is-menu-open .wp-block-navigation-item__content::before {
+	content: "←";
+	order: 2;
+	color: var(--wp--preset--color--accent);
+	font-weight: 300;
+	transition: transform 0.25s ease;
+}
+.ad-menu .is-menu-open .wp-block-navigation-item__content::after {
+	display: none;
+}
+.ad-menu .is-menu-open .wp-block-navigation-item__content:hover,
+.ad-menu .is-menu-open .current-menu-item > .wp-block-navigation-item__content,
+.ad-menu .is-menu-open [aria-current="page"] {
+	color: var(--wp--preset--color--accent);
+}
+.ad-menu .is-menu-open .wp-block-navigation-item__content:hover::before {
+	transform: translateX(-0.3em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ad-menu .is-menu-open .wp-block-navigation-item__content::before {
+		transition: none;
+	}
+}
+/* ===== 4. Σκούρες ενότητες: λευκά γράμματα ===== */
+.is-style-section-1,
+.has-theme-2-background-color :is(h1, h2, h3, h4, h5, h6, p, li, a) {
+	color: #fff !important;
+}
+
+/* Κουμπιά σε σκούρο φόντο: κόκκινο περίγραμμα, γεμίζουν κόκκινο στο hover */
+.has-theme-2-background-color .wp-block-button__link {
+	background: transparent !important;
+	color: #fff !important;
+	border: 2px solid var(--wp--preset--color--accent) !important;
+}
+.has-theme-2-background-color .wp-block-button__link:hover {
+	background: var(--wp--preset--color--accent) !important;
+}
+/* ===== 5. Υπομενού: ανοίγει με κλικ, μικρά γράμματα, κόκκινη υπογράμμιση ===== */
+
+/* Κρυμμένες οι υποκατηγορίες μέχρι να πατηθεί η κατηγορία */
+.ad-menu .is-menu-open .wp-block-navigation-submenu__toggle[aria-expanded="false"] ~ .wp-block-navigation__submenu-container {
+	display: none !important;
+}
+.ad-menu .is-menu-open .wp-block-navigation__submenu-container {
+	align-items: flex-end;
+	gap: 0.75rem;
+	padding: 1rem 0 0.5rem !important;
+	background: transparent !important;
+	border: 0 !important;
+}
+
+/* Οι υποκατηγορίες: μικρότερες, λεπτές, με κόκκινη υπογράμμιση */
+.ad-menu .is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+	font-family: var(--wp--preset--font-family--commissioner);
+	font-size: 1.25rem;
+	font-weight: 400;
+	letter-spacing: 0.1em;
+	color: #fff;
+	text-decoration: underline;
+	text-decoration-color: var(--wp--preset--color--accent);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.4em;
+}
+.ad-menu .is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item__content::before {
+	content: none;
+}
+.ad-menu .is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover {
+	color: var(--wp--preset--color--accent);
+}
+
+/* Το κόκκινο βελάκι του Gallery γυρίζει προς τα κάτω όταν είναι ανοιχτό */
+.ad-menu .is-menu-open .wp-block-navigation-submenu__toggle[aria-expanded="true"]::before {
+	transform: rotate(-90deg);
+}

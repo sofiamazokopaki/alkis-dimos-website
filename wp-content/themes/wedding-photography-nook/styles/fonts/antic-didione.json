@@ -1,0 +1,109 @@
+{
+	"settings": {
+		"typography": {
+			"fontFamilies": [
+				{
+					"fontFace": [
+						{
+							"fontFamily": "\"Red Hat Text\"",
+							"fontStyle": "normal",
+							"fontWeight": "400",
+							"src": [
+								"file:./assets/fonts/red-hat-text/red-hat-text-400-normal.woff2"
+							]
+						},
+						{
+							"fontFamily": "\"Red Hat Text\"",
+							"fontStyle": "normal",
+							"fontWeight": "600",
+							"src": [
+								"file:./assets/fonts/red-hat-text/red-hat-text-600-normal.woff2"
+							]
+						},
+						{
+							"fontFamily": "\"Red Hat Text\"",
+							"fontStyle": "italic",
+							"fontWeight": "400",
+							"src": [
+								"file:./assets/fonts/red-hat-text/red-hat-text-400-italic.woff2"
+							]
+						},
+						{
+							"fontFamily": "\"Red Hat Text\"",
+							"fontStyle": "italic",
+							"fontWeight": "300",
+							"src": [
+								"file:./assets/fonts/red-hat-text/red-hat-text-300-italic.woff2"
+							]
+						},
+						{
+							"fontFamily": "\"Red Hat Text\"",
+							"fontStyle": "italic",
+							"fontWeight": "600",
+							"src": [
+								"file:./assets/fonts/red-hat-text/red-hat-text-600-italic.woff2"
+							]
+						},
+						{
+							"fontFamily": "\"Red Hat Text\"",
+							"fontStyle": "normal",
+							"fontWeight": "300",
+							"src": [
+								"file:./assets/fonts/red-hat-text/red-hat-text-300-normal.woff2"
+							]
+						},
+						{
+							"fontFamily": "\"Red Hat Text\"",
+							"fontStyle": "normal",
+							"fontWeight": "500",
+							"src": [
+								"file:./assets/fonts/red-hat-text/red-hat-text-500-normal.woff2"
+							]
+						},
+						{
+							"fontFamily": "\"Red Hat Text\"",
+							"fontStyle": "italic",
+							"fontWeight": "500",
+							"src": [
+								"file:./assets/fonts/red-hat-text/red-hat-text-500-italic.woff2"
+							]
+						}
+					],
+					"fontFamily": "\"Red Hat Text\", sans-serif",
+					"name": "Red Hat Text",
+					"slug": "red-hat-text"
+				},
+				{
+					"fontFace": [
+						{
+							"fontFamily": "\"Antic Didone\"",
+							"fontStyle": "normal",
+							"fontWeight": "400",
+							"src": [
+								"file:./assets/fonts/antic-didone/antic-didone-400-normal.woff2"
+							]
+						}
+					],
+					"fontFamily": "\"Antic Didone\", serif",
+					"name": "Antic Didone",
+					"slug": "antic-didone"
+				}
+			]
+		}
+	},
+	"styles": {
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--antic-didone)",
+					"letterSpacing": "-0.02em"
+				}
+			}
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--red-hat-text)"
+		}
+	},
+	"version": 3,
+	"title": "Antic Didone"
+}

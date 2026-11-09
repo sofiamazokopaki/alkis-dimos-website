@@ -1,0 +1,17 @@
+# Secrets / local config
+wp-config.php
+
+# Local database (contains users & password hashes)
+wp-content/database/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs & caches
+*.log
+wp-content/debug.log
+wp-content/cache/
+wp-content/upgrade/

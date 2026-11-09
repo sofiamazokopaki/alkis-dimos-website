@@ -1,0 +1,35 @@
+{
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#fdf7ec",
+					"name": "Color 1",
+					"slug": "theme-1"
+				},
+				{
+					"color": "#774e24",
+					"name": "Color 2",
+					"slug": "theme-2"
+				},
+				{
+					"color": "#fbedd3",
+					"name": "Color 3",
+					"slug": "theme-3"
+				},
+				{
+					"color": "#c0763d",
+					"name": "Color 4",
+					"slug": "theme-4"
+				},
+				{
+					"color": "#d3a57f",
+					"name": "Color 5",
+					"slug": "theme-5"
+				}
+			]
+		}
+	},
+	"version": 3,
+	"title": "Peaches & Cream"
+}

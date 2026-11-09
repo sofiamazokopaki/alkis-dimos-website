@@ -1,0 +1,273 @@
+/*
+Theme Name: Wedding Photography Nook
+Theme URI: https://thethemenook.com/free-themes/wedding-photography-nook/
+Author: The Theme Nook
+Author URI: https://thethemenook.com
+Description: Wedding Photography Nook is a full site editing (FSE) block theme built for wedding, engagement, and elopement photographers who want a fast, professional website without a hassle of a separate page builder. It works just as well for portrait, family, and lifestyle photography studios looking for the same clean, image-first design. Soft color palettes and elegant typography keep the focus on your photography rather than the interface, and because everything runs on native WordPress blocks, editing your homepage, about page, or services page takes minutes in the Site Editor — no shortcodes, no bloated plugin stack, no separate builder to learn. It comes with dedicated About, Services, Testimonials, and Gallery sections ready to fill in, plus a clean blog layout for behind-the-scenes posts or client stories. The theme is mobile responsive, translation-ready, and supports RTL languages, and being block-native means it plays nicely with the plugins you already use, without needing a separate builder. Whether you're building out a wedding photography brand or a broader portrait and family photography site, Wedding Photography Nook gives you a polished starting point without the technical overhead.
+Requires at least: 7.0
+Tested up to: 7.1
+Requires PHP: 7.4
+Version: 1.0.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: wedding-photography-nook
+Tags: one-column, two-columns, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, style-variations, blog, photography, portfolio
+*/
+
+/* Set default line height for font size presets. */
+
+.has-xx-large-font-size,
+.has-xxx-large-font-size {
+	line-height: 1;
+}
+
+/* Add a transition state for buttons. */
+button {    
+  background-color: var(--wp--preset--color--theme-2);
+  border-radius: 0;
+  border-width: 0;
+  color: var(--wp--preset--color--theme-1);
+  font-family: var(--wp--preset--font-family--questrial);
+  font-size: var(--wp--preset--font-size--custom-1);
+  font-style: inherit;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: inherit;
+  padding-top: 16px;
+  padding-right: 24px;
+  padding-bottom: 16px;
+  padding-left: 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+button,
+.wp-element-button {
+    transition: border, background-color, color, box-shadow, opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(30px);
+}
+
+/* Fields */
+
+label,
+.jetpack-field-label .rich-text.jetpack-field-label__input,
+.contact-form .grunion-checkbox-multiple-options legend, 
+.contact-form .grunion-radio-options legend,
+.wp-block-jetpack-contact-form-container .wp-block-jetpack-contact-form label {
+    display: inline-block;
+    font-size: var(--wp--preset--font-size--small);
+    margin-bottom: 0.25em;
+    font-weight: inherit;
+}
+
+textarea,
+input:not([type=submit]):not([type=checkbox]):not([type=radio]):not([type=range]),
+.wp-block-post-comments-form textarea,
+.wp-block-post-comments-form input:not([type=submit]):not([type=checkbox]):not([type=radio]),
+.jetpack-contact-form .jetpack-field .jetpack-field__input,
+.jetpack-contact-form .jetpack-field .jetpack-field__textarea {
+    backdrop-filter: saturate(1.075);
+    background-color: transparent;
+    border-color: currentColor;
+    border-style: solid;
+    border-radius: 0px;
+    border-width: 1px;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: currentColor;
+    filter: brightness(1.05);
+    font-size: var(--wp--preset--font-size--small);
+    font-weight: inherit;
+    line-height: 1.5;
+    /* min-height: 42px; */
+    padding: 0.8rem 1rem;
+    width: 100%;
+}
+
+textarea:focus,
+input:not([type=submit]):focus,
+.wp-block-post-comments-form textarea:focus,
+.wp-block-post-comments-form input:not([type=submit]):not([type=checkbox]):not([type=radio]):focus {
+    outline: 1px solid currentColor;
+}
+
+textarea::placeholder,
+.input::placeholder,
+.wp-block-jetpack-subscriptions__form .components-base-control__field input::placeholder {
+    color: color-mix(in srgb, currentColor 60%, transparent);
+}
+
+/* Styling for hero areas. */
+.header-cover .wp-block-template-part {
+    max-width: none;
+}
+
+.header-cover .wp-block-template-part > .wp-block-group {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Cover block styles */
+.wp-block-cover[class*="is-style-section"]:not(.is-style-default) .wp-block-cover__image-background {
+    opacity: 0.25;
+}
+
+.wp-block-cover[class*="is-style-section"]:not(.is-style-default) .wp-block-cover__background {
+    opacity: 0;
+}
+
+:root :where(.wp-block-cover.is-light){
+    color: var(--wp--preset--color--theme-5, #000);
+}
+
+.wp-block-cover[class*="is-style-section"]:not(.is-style-default) .wp-block-cover__background {
+    opacity: 0;
+}
+
+/* Make sure footers have no margin. */
+footer {
+	margin-top: 0 !important;
+}
+
+/* Social Links: Better default color. */
+
+.wp-block-social-links.is-style-logos-only li.wp-social-link {
+	color: currentcolor;
+}
+
+.wp-block-social-links.is-style-logos-only .wp-social-link svg {
+	height: 1em;
+	width: 1em;
+}
+
+.wp-block-social-links.has-small-icon-size {
+	font-size: 20px;
+}
+
+/* Navigation: Remove row gap to improve wrapping behavior */
+.wp-block-navigation__container {
+    row-gap: 0;
+}
+
+/* Move header core/navigation to the right on mobile. */
+
+.order-0 {
+	order: 0;
+}
+
+.order-1 {
+	order: 1;
+}
+
+.grow-0 {
+	flex-grow: 0;
+}
+
+.grow {
+	flex-grow: 1;
+}
+
+@media (min-width: 600px) {
+
+	.md\:order-0 {
+		order: 0;
+	}
+
+	.md\:order-1 {
+		order: 1;
+	}
+
+	.md\:grow-0 {
+		flex-grow: 0;
+	}
+
+	.md\:grow {
+		flex-grow: 1;
+	}
+
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+/* Utility class for wide and full images with aspect ratios, as core does not support this yet. */
+.aspect-16\/9 {
+	aspect-ratio: 16/9;
+}
+
+.aspect-16\/9 img,
+.aspect-16\/9 .components-placeholder {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+/* Ensure cropping works. */
+.aspect-16\/9 .wp-block-image__crop-area,
+.aspect-16\/9 .wp-block-image__crop-area img {
+	aspect-ratio: unset;
+}
+
+@media (max-width: 768px) {
+
+    .footer-col2 .wp-block-social-links {
+        justify-content: left;
+    }
+
+    .footer-col3 p {
+        text-align: left !important;
+    }
+
+}
+
+.wp-block-post-navigation-link .post-navigation-link__label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.post-navigation-link-next .post-navigation-link__label {
+    text-align: right;
+}
+
+.wp-block-post-navigation-link .post-navigation-link__title {
+    font-family: var(--wp--preset--font-family--newsreader), serif !important;
+    font-size: var(--wp--preset--font-size--medium);
+}
+
+.wp-block-post-navigation-link a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.wpn-hover-italics > a:hover {
+    font-style: italic;
+}
+/* ===== 6. Εσωτερικές σελίδες: φωτογραφία + μαύρη φάσα με τίτλο ===== */
+.ad-page-hero {
+	margin: 0 !important;
+}
+.ad-page-hero img {
+	display: block;
+	width: 100%;
+	height: min(75vh, 50rem);
+	object-fit: cover;
+}
+.ad-page-title {
+	background: #000;
+	padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3rem);
+	margin: 0 !important;
+}
+.ad-page-title .wp-block-post-title {
+	color: #fff !important;
+	font-size: clamp(2.5rem, 7vw, 6rem);
+	text-align: center;
+	margin: 0;
+}
