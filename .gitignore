@@ -15,3 +15,6 @@ Thumbs.db
 wp-content/debug.log
 wp-content/cache/
 wp-content/upgrade/
+
+# Contact Form 7 temporary uploads
+wp-content/uploads/wpcf7_uploads/

@@ -32,8 +32,9 @@
 }
 
 /* ---- 1. Μεγάλη φωτογραφία ---- */
- .ad-hero {
-	min-height: max(40vh, 18rem) !important;
+/* Εσωτερικές σελίδες: hero ~55% της οθόνης (με όρια) */
+.ad-hero {
+	min-height: clamp(18rem, 55vh, 40rem) !important;
 }
 .ad-hero__subtitle {
 	margin: 0;
@@ -48,17 +49,17 @@
 /* ---- 2. Μαύρη φάσα με τίτλο ---- */
 .ad-intro {
 	background: #000;
-	padding: clamp(4rem, 9vw, 7rem) clamp(1.25rem, 4vw, 3rem) !important;
+	padding: clamp(2rem, 4vw, 3.25rem) clamp(1.25rem, 4vw, 3rem) !important;
 }
 .ad-intro h1 {
 	color: #fff !important;
-	font-size: clamp(2.75rem, 7vw, 6rem);
-	margin: 0 0 1.5rem;
+	font-size: clamp(2.25rem, 5vw, 4.25rem);
+	margin: 0 0 0.75rem;
 }
 .ad-intro p {
 	color: rgba(255, 255, 255, 0.82);
-	font-size: clamp(1.05rem, 1.4vw, 1.25rem);
-	line-height: 1.8;
+	font-size: clamp(1rem, 1.3vw, 1.15rem);
+	line-height: 1.7;
 	max-width: 46rem;
 	margin-inline: auto;
 }
@@ -600,4 +601,669 @@ body:not(.home):not(.editor-styles-wrapper) h2.wp-block-heading {	text-decoratio
 }
 .ad-article > :first-child {
 	margin-top: 0 !important;
+}
+/* =========================================================
+   Gallery: δύο μεγάλα κουτιά (Photography / Videography)
+   ========================================================= */
+.ad-tiles {
+	gap: 0.75rem !important;
+	margin-top: clamp(3rem, 7vw, 6rem) !important;
+}
+.ad-tile {
+	position: relative;
+	aspect-ratio: 4 / 5;
+	min-height: 0 !important;
+	padding: clamp(1.5rem, 4vw, 3rem) !important;
+	overflow: hidden;
+}
+.ad-tile .wp-block-cover__image-background {
+	transition: transform 0.8s ease;
+}
+.ad-tile:hover .wp-block-cover__image-background {
+	transform: scale(1.04);
+}
+.ad-tile__num {
+	margin: 0 0 0.5rem !important;
+	color: var(--wp--preset--color--accent) !important;
+	font-size: 0.85rem;
+	font-weight: 600;
+	letter-spacing: 0.2em;
+}
+.ad-tile h2.ad-tile__title {
+	margin: 0 0 0.75rem;
+	font-size: clamp(2.25rem, 5vw, 4.25rem);
+	text-decoration: none !important;
+}
+.ad-tile__title a {
+	color: #fff;
+	text-decoration: none;
+}
+/* Όλο το κουτί κλικάρεται */
+.ad-tile__title a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+}
+.ad-tile p {
+	color: #fff;
+	max-width: 26rem;
+	margin: 0;
+}
+.ad-tile:hover .ad-tile__title a {
+	text-decoration: underline;
+	text-decoration-color: var(--wp--preset--color--accent);
+	text-decoration-thickness: 0.06em;
+	text-underline-offset: 0.15em;
+}
+@media (prefers-reduced-motion: reduce) {
+	.ad-tile .wp-block-cover__image-background { transition: none; }
+	.ad-tile:hover .wp-block-cover__image-background { transform: none; }
+}
+
+/* «Next: …» σύνδεσμος πριν το κλείσιμο */
+.ad-next {
+	margin-top: clamp(3rem, 7vw, 5rem) !important;
+}
+
+/* =========================================================
+   Videography: showreel και ταινίες
+   ========================================================= */
+.ad-reel {
+	margin-top: 2rem !important;
+}
+.ad-reel .wp-block-embed,
+.ad-film .wp-block-embed {
+	margin: 0;
+	background: #000;
+}
+.ad-films {
+	gap: clamp(1.5rem, 3vw, 2.5rem) !important;
+	margin-top: 2rem !important;
+}
+.ad-films + .ad-films {
+	margin-top: clamp(2rem, 4vw, 3rem) !important;
+}
+.ad-film__title {
+	margin: 1.25rem 0 0.35rem !important;
+	padding-top: 0.9rem;
+	border-top: 2px solid var(--wp--preset--color--accent);
+	font-size: clamp(1.3rem, 2vw, 1.75rem);
+}
+.ad-film__meta {
+	margin: 0;
+	color: var(--wp--preset--color--theme-4);
+	font-size: 0.85rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+/* =========================================================
+   Collaborations: ονόματα ανά κατηγορία + δουλειές
+   ========================================================= */
+.ad-clients {
+	gap: clamp(2rem, 4vw, 3rem) !important;
+	margin-top: clamp(3rem, 7vw, 6rem) !important;
+}
+.ad-clients__label {
+	margin: 0 0 1rem !important;
+	padding-bottom: 0.75rem;
+	border-bottom: 2px solid var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent);
+	font-size: 0.85rem;
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+}
+.ad-clients__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.ad-clients__list li {
+	margin: 0 0 0.4rem;
+	font-family: var(--wp--preset--font-family--roboto-condensed);
+	font-size: clamp(1.25rem, 2vw, 1.6rem);
+	font-weight: 600;
+	line-height: 1.25;
+	text-transform: uppercase;
+}
+.ad-work {
+	gap: 0.75rem !important;
+	margin-top: 2rem !important;
+}
+.ad-work + .ad-work {
+	margin-top: clamp(1.5rem, 3vw, 2.5rem) !important;
+}
+.ad-work__cat {
+	margin: 1rem 0 0.25rem !important;
+	color: var(--wp--preset--color--accent);
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+}
+.ad-work__title {
+	margin: 0 !important;
+	font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+	letter-spacing: 0.06em;
+}
+
+/* =========================================================
+   Contact: στοιχεία + φόρμα
+   ========================================================= */
+.ad-contact {
+	gap: clamp(2.5rem, 6vw, 6rem) !important;
+	margin-top: clamp(3rem, 7vw, 6rem) !important;
+	margin-bottom: clamp(4rem, 9vw, 8rem) !important;
+}
+.ad-contact__label {
+	margin: 0 0 0.35rem !important;
+	color: var(--wp--preset--color--accent);
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+}
+.ad-contact__value {
+	margin: 0 0 2rem !important;
+	font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+	line-height: 1.5;
+}
+.ad-contact__value a,
+.ad-contact__social a {
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-color: var(--wp--preset--color--accent);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.35em;
+	overflow-wrap: anywhere;
+}
+.ad-contact__value a:hover,
+.ad-contact__social a:hover {
+	color: var(--wp--preset--color--accent);
+}
+.ad-contact__social {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.ad-contact__social li {
+	margin: 0 0 0.6rem;
+}
+.ad-contact__form h2 {
+	font-size: clamp(1.75rem, 3vw, 2.5rem);
+	margin: 0 0 2rem;
+}
+
+/* Φόρμα (Contact Form 7) */
+.ad-form p {
+	margin: 0;
+}
+.ad-form br {
+	display: none;
+}
+.ad-form__row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0 1.5rem;
+}
+@media (max-width: 600px) {
+	.ad-form__row {
+		grid-template-columns: 1fr;
+	}
+}
+.ad-form__field {
+	display: block;
+	margin-bottom: 1.5rem;
+	color: var(--wp--preset--color--theme-5);
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+.ad-form .wpcf7-form-control-wrap {
+	display: block;
+	margin-top: 0.5rem;
+}
+.ad-form input:not([type="submit"]),
+.ad-form select,
+.ad-form textarea {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0.85rem 0;
+	border: 0;
+	border-bottom: 1px solid var(--wp--preset--color--theme-4);
+	border-radius: 0;
+	background: transparent;
+	color: var(--wp--preset--color--theme-2);
+	font-family: inherit;
+	font-size: 1.05rem;
+	letter-spacing: normal;
+	text-transform: none;
+}
+.ad-form textarea {
+	min-height: 9rem;
+	resize: vertical;
+}
+.ad-form input:not([type="submit"]):focus,
+.ad-form select:focus,
+.ad-form textarea:focus {
+	outline: none;
+	border-bottom: 2px solid var(--wp--preset--color--accent);
+}
+.ad-form ::placeholder {
+	color: var(--wp--preset--color--theme-4);
+}
+.ad-form .ad-form__submit {
+	margin-top: 0.5rem;
+	padding: 1rem 2.5rem;
+	border: 0;
+	border-radius: 0;
+	background: var(--wp--preset--color--accent);
+	color: #fff;
+	font-family: var(--wp--preset--font-family--roboto-condensed);
+	font-size: 0.95rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+.ad-form .ad-form__submit:hover,
+.ad-form .ad-form__submit:focus-visible {
+	background: var(--wp--preset--color--accent-dark);
+}
+.ad-form .wpcf7-not-valid-tip {
+	margin-top: 0.4rem;
+	color: var(--wp--preset--color--accent);
+	font-size: 0.85rem;
+	letter-spacing: normal;
+	text-transform: none;
+}
+.ad-form .wpcf7-response-output {
+	margin: 1.5rem 0 0 !important;
+	padding: 1rem 1.25rem !important;
+	border-width: 1px !important;
+}
+
+/* Footer: credit κάτω από το copyright */
+.ad-footer__credit {
+	margin-top: 0.4rem !important;
+	font-size: 0.75rem;
+	letter-spacing: 0.06em;
+	color: var(--wp--preset--color--theme-4);
+}
+
+/* =========================================================
+   Κουμπιά: ενιαίο σύστημα για όλο το site
+   1. Κύριο: κόκκινο γεμάτο      2. Outline: κόκκινο περίγραμμα
+   3. Κύκλος με βελάκι (κλεισίματα) – ορίζεται στο functions.php
+   ========================================================= */
+.wp-block-button:not(.is-style-circle-arrow) .wp-block-button__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6em;
+	padding: 1rem 2.25rem;
+	border: 2px solid var(--wp--preset--color--accent);
+	border-radius: 0;
+	background: var(--wp--preset--color--accent);
+	color: #fff;
+	font-family: var(--wp--preset--font-family--roboto-condensed);
+	font-size: 0.9rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	line-height: 1.2;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+.wp-block-button:not(.is-style-circle-arrow) .wp-block-button__link:hover,
+.wp-block-button:not(.is-style-circle-arrow) .wp-block-button__link:focus-visible {
+	background: var(--wp--preset--color--accent-dark);
+	border-color: var(--wp--preset--color--accent-dark);
+	color: #fff;
+}
+/* Outline (και το παλιό «Κόκκινο περίγραμμα») */
+.wp-block-button:is(.is-style-outline, .is-style-red-outline) .wp-block-button__link {
+	background: transparent;
+	color: var(--wp--preset--color--theme-2);
+}
+.wp-block-button:is(.is-style-outline, .is-style-red-outline) .wp-block-button__link:hover,
+.wp-block-button:is(.is-style-outline, .is-style-red-outline) .wp-block-button__link:focus-visible {
+	background: var(--wp--preset--color--accent);
+	border-color: var(--wp--preset--color--accent);
+	color: #fff;
+}
+/* Outline πάνω σε φωτογραφία ή μαύρο φόντο: λευκά γράμματα */
+:is(.wp-block-cover, .ad-cta, .ad-names, .ad-intro, .ad-dark) .wp-block-button:is(.is-style-outline, .is-style-red-outline) .wp-block-button__link {
+	color: #fff;
+}
+@media (prefers-reduced-motion: reduce) {
+	.wp-block-button .wp-block-button__link { transition: none; }
+}
+
+/* Αρχική: κουμπιά στο hero και κεντραρισμένα κουμπιά */
+.ad-hero__buttons {
+	gap: 1rem !important;
+	margin-top: 2.5rem !important;
+}
+.ad-center-buttons {
+	margin-top: 2.5rem !important;
+}
+.ad-feature .wp-block-buttons,
+.ad-story .wp-block-buttons {
+	margin-top: 1.75rem !important;
+}
+.ad-home-intro .ad-kicker {
+	margin-bottom: 1rem !important;
+}
+.ad-story .ad-kicker {
+	margin: 0 0 0.5rem !important;
+}
+.ad-story .ad-kicker + h2 {
+	margin-top: 0;
+}
+
+/* About: «What I do today» */
+.ad-section-title {
+	margin-top: clamp(4rem, 9vw, 8rem) !important;
+	font-size: clamp(2rem, 4vw, 3.25rem);
+}
+.ad-today {
+	gap: clamp(2rem, 5vw, 4rem) !important;
+	margin-top: 2rem !important;
+}
+.ad-today p {
+	line-height: 1.7;
+	margin: 0 0 1rem;
+}
+
+/* =========================================================
+   Αρχική (v2): parallax, κουτιά, μαύρες ενότητες, λωρίδα
+   ========================================================= */
+/* Parallax: η φωτογραφία μένει σταθερή όσο κυλάει η σελίδα */
+.ad-parallax {
+	margin-block: 0 !important;
+	padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 4vw, 3rem) !important;
+}
+.ad-parallax--hero {
+	min-height: max(50vw, 28rem) !important;
+}
+.ad-parallax--cta {
+	min-height: max(35vw, 22rem) !important;
+	margin-top: clamp(4rem, 9vw, 8rem) !important;
+}
+.ad-parallax--cta h2 {
+	color: #fff !important;
+	font-size: clamp(2rem, 5vw, 4.25rem);
+	margin: 0 0 2rem;
+	text-decoration: none !important;
+}
+/* Σε κινητά/tablet το fixed background δεν δουλεύει σωστά: απλή φωτογραφία */
+@media (hover: none), (max-width: 781px) {
+	.ad-parallax .wp-block-cover__image-background.has-parallax {
+		background-attachment: scroll !important;
+	}
+}
+
+/* Τρία ψηλά κουτιά με τίτλο και βελάκι */
+.ad-home-tiles {
+	gap: clamp(1rem, 2.5vw, 2rem) !important;
+	margin-top: clamp(3rem, 6vw, 5rem) !important;
+}
+.ad-home-tile__img {
+	margin: 0 !important;
+	overflow: hidden;
+}
+.ad-home-tile__img img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 2 / 3;
+	object-fit: cover;
+	transition: transform 0.6s ease;
+}
+.ad-home-tile:hover .ad-home-tile__img img {
+	transform: scale(1.04);
+}
+.ad-home-tile__title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 1rem 0 0 !important;
+	padding-top: 0.75rem;
+	border-top: 2px solid var(--wp--preset--color--accent);
+	font-size: clamp(1.25rem, 2vw, 1.6rem);
+	letter-spacing: 0.06em;
+}
+.ad-home-tile__title a {
+	flex: 1;
+	display: flex;
+	justify-content: space-between;
+	color: inherit;
+	text-decoration: none;
+}
+.ad-home-tile__title a::after {
+	content: "→";
+	color: var(--wp--preset--color--accent);
+	transition: transform 0.3s ease;
+}
+.ad-home-tile:hover .ad-home-tile__title a::after {
+	transform: translateX(0.35rem);
+}
+@media (prefers-reduced-motion: reduce) {
+	.ad-home-tile__img img,
+	.ad-home-tile__title a::after { transition: none; }
+}
+
+/* Μαύρες ενότητες: φωτογραφία + κείμενο */
+.ad-dark {
+	background: #000;
+	color: #fff;
+	margin-top: clamp(4rem, 9vw, 8rem) !important;
+	padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 4vw, 3rem) !important;
+}
+.ad-dark + .ad-dark,
+.ad-strip + .ad-dark {
+	margin-top: 0 !important;
+}
+.ad-dark__cols {
+	gap: clamp(2rem, 6vw, 6rem) !important;
+	max-width: 64rem !important;
+}
+.ad-dark h2 {
+	color: #fff !important;
+	font-size: clamp(2rem, 4vw, 3.25rem);
+	margin: 0 0 1.5rem;
+	text-decoration: none !important;
+}
+.ad-dark p {
+	color: rgba(255, 255, 255, 0.85);
+	line-height: 1.7;
+	margin: 0 0 1rem;
+}
+.ad-dark strong {
+	color: #fff;
+}
+.ad-dark .ad-kicker {
+	color: var(--wp--preset--color--accent);
+	margin-bottom: 0.75rem;
+}
+.ad-dark .wp-block-buttons {
+	margin-top: 2rem !important;
+}
+
+/* Λωρίδα 5 φωτογραφιών σε όλο το πλάτος */
+.wp-block-gallery.ad-strip {
+	--wp--style--unstable-gallery-gap: 6px;
+	gap: 6px !important;
+	margin-top: 6px !important;
+	margin-bottom: 0 !important;
+}
+.ad-strip .wp-block-image img {
+	aspect-ratio: 2 / 3;
+	object-fit: cover;
+}
+.ad-dark + .ad-strip {
+	margin-top: 6px !important;
+}
+
+/* Trusted by σε λευκό, με μεγάλα γράμματα */
+.ad-trusted {
+	text-align: center;
+	padding: clamp(4rem, 9vw, 7rem) clamp(1.25rem, 4vw, 3rem) !important;
+	margin-top: 0 !important;
+}
+.ad-trusted__list {
+	max-width: 60rem;
+	margin: 0 auto 2rem !important;
+	font-family: var(--wp--preset--font-family--roboto-condensed);
+	font-size: clamp(1.5rem, 3.5vw, 2.75rem);
+	font-weight: 600;
+	line-height: 1.3;
+	text-transform: uppercase;
+}
+.ad-trusted + .ad-dark {
+	margin-top: 0 !important;
+}
+
+/* =========================================================
+   Responsive: κινητά & tablet
+   ========================================================= */
+/* Χωρίς λευκό κενό ανάμεσα στην κεφαλίδα και την πρώτη φωτογραφία */
+.wp-block-post-content:has(> .alignfull:first-child) {
+	padding-top: 0 !important;
+}
+
+/* Tablet και κινητό: ονόματα συνεργατών 2 × 2 */
+@media (max-width: 1024px) {
+	.ad-clients {
+		flex-wrap: wrap !important;
+		row-gap: 2.5rem !important;
+	}
+	.ad-clients > .wp-block-column {
+		flex: 0 0 calc(50% - 1.5rem) !important;
+	}
+}
+
+@media (max-width: 781px) {
+	/* Hero: υπότιτλος χωρίς τόσο αραιά γράμματα */
+	.ad-hero__subtitle {
+		letter-spacing: 0.2em;
+		font-size: 0.85rem;
+		line-height: 1.6;
+	}
+
+	/* Πλέγματα φωτογραφιών: 2 στήλες (όχι μία κάτω από την άλλη) */
+	.ad-spotlight-grid {
+		display: block !important;
+		columns: 2;
+		column-gap: 0.5rem;
+	}
+	.ad-spotlight-grid > .wp-block-column {
+		display: contents;
+	}
+	.ad-spotlight-grid .wp-block-image {
+		break-inside: avoid;
+		margin: 0 0 0.5rem !important;
+	}
+
+	/* Carousel που σύρεις με το δάχτυλο */
+	.ad-work,
+	.ad-home-tiles {
+		flex-wrap: nowrap !important;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+		gap: 0.75rem !important;
+		padding-bottom: 0.25rem;
+	}
+	.ad-work::-webkit-scrollbar,
+	.ad-home-tiles::-webkit-scrollbar {
+		display: none;
+	}
+	.wp-block-columns.ad-work > .wp-block-column.wp-block-column,
+	.wp-block-columns.ad-home-tiles > .wp-block-column.wp-block-column {
+		flex: 0 0 72% !important;
+		flex-basis: 72% !important;
+		scroll-snap-align: start;
+	}
+
+	/* Λωρίδα φωτογραφιών της αρχικής: carousel */
+	.wp-block-gallery.ad-strip {
+		flex-wrap: nowrap !important;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+	}
+	.wp-block-gallery.ad-strip::-webkit-scrollbar {
+		display: none;
+	}
+	.wp-block-gallery.ad-strip.has-nested-images figure.wp-block-image {
+		flex: 0 0 60% !important;
+		width: 60% !important;
+		scroll-snap-align: start;
+	}
+
+	/* Gallery: πιο χαμηλά κουτιά */
+	.ad-tile {
+		aspect-ratio: 4 / 3;
+	}
+
+	/* Μαύρες ενότητες: λίγο λιγότερο κενό */
+	.ad-dark__cols {
+		gap: 2rem !important;
+	}
+}
+
+/* =========================================================
+   Διακόπτης γλώσσας ΕΛ / EN στην κεφαλίδα
+   ========================================================= */
+.ad-header__right {
+	gap: clamp(1rem, 3vw, 2rem) !important;
+	align-items: center !important;
+}
+.ad-header__right > .wp-block-shortcode,
+.ad-header__right > p {
+	margin: 0;
+}
+.ad-lang {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-family: var(--wp--preset--font-family--roboto-condensed);
+	font-size: 0.85rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+}
+.ad-lang__item {
+	color: var(--wp--preset--color--theme-4);
+	text-decoration: none;
+	padding: 0.25rem 0.1rem;
+}
+a.ad-lang__item:hover,
+a.ad-lang__item:focus-visible {
+	color: var(--wp--preset--color--accent);
+}
+.ad-lang__item.is-current {
+	color: var(--wp--preset--color--theme-2);
+	text-decoration: underline;
+	text-decoration-color: var(--wp--preset--color--accent);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.35em;
+}
+.ad-lang__sep {
+	color: var(--wp--preset--color--theme-4);
+}
+
+/* Menu: υποκατηγορίες κρυμμένες μέχρι να πατηθεί η κατηγορία (βλ. menu.js) */
+.ad-menu .is-menu-open .has-child:not(.ad-sub-open) > .wp-block-navigation__submenu-container {
+	display: none !important;
+}
+.ad-menu .is-menu-open .has-child.ad-sub-open > .wp-block-navigation__submenu-container {
+	display: flex !important;
+	visibility: visible !important;
+	opacity: 1 !important;
+	height: auto !important;
 }

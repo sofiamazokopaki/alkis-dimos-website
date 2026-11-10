@@ -1,0 +1,80 @@
+/* =========================================================
+   Alkis Dimos – εφέ (μόνο στο site, όχι στον editor)
+   ========================================================= */
+
+/* ---- 1. Εμφάνιση στο scroll (ενεργό μόνο όταν τρέχει το effects.js) ---- */
+.ad-js .ad-reveal {
+	opacity: 0;
+	transform: translateY(2rem);
+	transition:
+		opacity 0.9s cubic-bezier(0.2, 0.65, 0.3, 1) var(--ad-delay, 0s),
+		transform 0.9s cubic-bezier(0.2, 0.65, 0.3, 1) var(--ad-delay, 0s);
+}
+.ad-js .ad-reveal.is-visible {
+	opacity: 1;
+	transform: none;
+}
+
+/* ---- 2. Hero: ο τίτλος και τα κουμπιά μπαίνουν με κίνηση ---- */
+@keyframes ad-rise {
+	from { opacity: 0; transform: translateY(1.5rem); }
+	to   { opacity: 1; transform: none; }
+}
+:is(.ad-hero, .ad-parallax--hero) :is(.ad-hero__title, h1) {
+	animation: ad-rise 1.1s cubic-bezier(0.2, 0.65, 0.3, 1) 0.15s both;
+}
+:is(.ad-hero, .ad-parallax--hero) .ad-hero__subtitle {
+	animation: ad-rise 1.1s cubic-bezier(0.2, 0.65, 0.3, 1) 0.4s both;
+}
+:is(.ad-hero, .ad-parallax--hero) .wp-block-buttons {
+	animation: ad-rise 1.1s cubic-bezier(0.2, 0.65, 0.3, 1) 0.65s both;
+}
+
+/* Εσωτερικές σελίδες: αργό ζουμ στη φωτογραφία, σαν πλάνο ταινίας */
+@keyframes ad-kenburns {
+	from { transform: scale(1.12); }
+	to   { transform: scale(1); }
+}
+.ad-hero {
+	overflow: hidden;
+}
+.ad-hero:not(.ad-hero--home) .wp-block-cover__image-background {
+	animation: ad-kenburns 14s ease-out both;
+}
+
+/* ---- 3. Φωτογραφίες: ελαφρύ ζουμ στο hover ---- */
+:is(.ad-spotlight-grid, .ad-strip, .ad-work, .ad-story) .wp-block-image {
+	overflow: hidden;
+}
+:is(.ad-spotlight-grid, .ad-strip, .ad-work) .wp-block-image img {
+	transition: transform 0.8s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+:is(.ad-spotlight-grid, .ad-strip, .ad-work) .wp-block-image:hover img {
+	transform: scale(1.05);
+}
+
+/* Links «ad-more»: η κόκκινη γραμμή απομακρύνεται λίγο στο hover */
+.ad-more a {
+	transition: color 0.3s ease, text-underline-offset 0.3s ease;
+}
+.ad-more a:hover {
+	text-underline-offset: 0.7em;
+}
+
+/* ---- 4. Κεφαλίδα: σκιά όταν κάνουμε scroll ---- */
+.wp-site-blocks > :first-child:has(.ad-header) {
+	transition: box-shadow 0.4s ease;
+}
+.wp-site-blocks > :first-child.is-scrolled:has(.ad-header) {
+	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ---- Λιγότερη κίνηση: όλα στατικά ---- */
+@media (prefers-reduced-motion: reduce) {
+	.ad-js .ad-reveal { opacity: 1; transform: none; transition: none; }
+	:is(.ad-hero, .ad-parallax--hero) :is(h1, .ad-hero__title, .ad-hero__subtitle, .wp-block-buttons),
+	.ad-hero .wp-block-cover__image-background { animation: none; }
+	:is(.ad-spotlight-grid, .ad-strip, .ad-work) .wp-block-image img,
+	.ad-more a { transition: none; }
+	:is(.ad-spotlight-grid, .ad-strip, .ad-work) .wp-block-image:hover img { transform: none; }
+}
